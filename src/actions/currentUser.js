@@ -7,12 +7,7 @@ export const setCurrentUser = user => {
   }
 }
 
-const credentials = {
-  username: 'chuck',
-  password: 'password'
-}
-
-export const login = credentials => {
+export const login = (credentials) => {
   return dispatch => {
     return fetch('http://localhost:3001/api/v1/login', {
       method: "POST",
@@ -21,5 +16,14 @@ export const login = credentials => {
       },
       body: JSON.stringify(credentials)
     })
+      .then(response => response.json())
+      .then(user => {
+        if (user.error) {
+          alert(user.error)
+        } else {
+          dispatch(setCurrentUser(user))
+        }
+      }
+      )
   }
 }
