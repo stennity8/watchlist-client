@@ -12,6 +12,7 @@ class PopularTvShowList extends Component {
   render() {
     return (
       <div>
+        <h2 className="centered">Popular TV Shows</h2>
         <TvShows reduxShowType={"popularTvShows"} />
       </div>
     )
