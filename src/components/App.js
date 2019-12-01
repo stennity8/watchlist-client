@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import LoginForm from '../components/LoginForm';
-import SignupForm from '../components/SignupForm';
+import LoginForm from '../components/login/LoginForm';
+import SignupForm from '../components/signup/SignupForm';
 import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/currentUser'
 import { Router, Route, Switch } from 'react-router-dom'
-import Navbar from './Navbar'
+import Navbar from './navbar/Navbar'
 import history from '../history'
 import Home from './Home'
 
