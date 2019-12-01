@@ -24,7 +24,7 @@ export const fetchPopularTvShows = () => async dispatch => {
 }
 
 export const fetchTvShowGenres = () => async dispatch => {
-  const response = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${TMDB_KEY}&language=en-US&page=1`)
+  const response = await fetch(`https://api.themoviedb.org/3/genre/tv/list?api_key=${TMDB_KEY}&language=en-US`)
 
   const genres = await response.json()
 

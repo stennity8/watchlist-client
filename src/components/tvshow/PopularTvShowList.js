@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPopularTvShows } from '../../actions/tvShows'
+import { fetchPopularTvShows, fetchTvShowGenres } from '../../actions/tvShows'
 
 class PopularTvShowList extends Component {
   componentDidMount() {
+    // this.props.fetchTvShowGenres()
     // this.props.fetchPopularTvShows()
   }
 
@@ -16,4 +17,4 @@ class PopularTvShowList extends Component {
   }
 }
 
-export default connect(null, { fetchPopularTvShows })(PopularTvShowList)
+export default connect(null, { fetchPopularTvShows, fetchTvShowGenres })(PopularTvShowList)
