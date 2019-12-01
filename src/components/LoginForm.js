@@ -27,9 +27,16 @@ export class LoginForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input placeholder="Username" value={this.state.username} name="username" type="text" onChange={this.handleChange}></input>
-        <input placeholder="Password" value={this.state.password} name="password" type="text" onChange={this.handleChange}></input>
+      <form onSubmit={this.handleSubmit} className="ui form error">
+        <h3>Log In</h3>
+        <div className="field">
+          <label>Username</label>
+          <input placeholder="Username" value={this.state.username} name="username" type="text" onChange={this.handleChange}></input>
+        </div>
+        <div className="field">
+          <label>Password</label>
+          <input placeholder="Password" value={this.state.password} name="password" type="text" onChange={this.handleChange}></input>
+        </div>
         <input type="submit" value="Log In" className="ui button primary" />
       </form>
     );
