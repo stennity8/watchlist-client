@@ -20,7 +20,7 @@ export const fetchPopularTvShows = () => async dispatch => {
 
   const tvShows = await response.json()
 
-  dispatch(setPopularTvShows(tvShows))
+  dispatch(setPopularTvShows(tvShows.results))
 }
 
 export const fetchTvShowGenres = () => async dispatch => {
