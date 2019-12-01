@@ -9,8 +9,11 @@ const Logout = ({ logout }) => {
   }
 
   return (
-    <div>
-      <button className="ui button primary" onClick={handleSubmit}>Log out</button>
+    <div className="item">
+      <div className="ui button primary tiny" onClick={handleSubmit}>
+        <i className="user icon" />
+        Log out
+      </div>
     </div>
   );
 
