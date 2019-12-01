@@ -1,4 +1,5 @@
 import { SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "./types"
+import history from '../history'
 
 export const setCurrentUser = user => {
   return {
@@ -29,6 +30,7 @@ export const login = (credentials) => async dispatch => {
     alert(user.error)
   } else {
     dispatch(setCurrentUser(user))
+    history.push('/')
   }
 }
 

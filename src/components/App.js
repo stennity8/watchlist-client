@@ -3,7 +3,6 @@ import './App.css';
 import LoginForm from '../components/LoginForm';
 import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/currentUser'
-import Logout from './Logout'
 import { Router, Route, Switch } from 'react-router-dom'
 import Navbar from './Navbar'
 import history from '../history'
@@ -13,7 +12,6 @@ export class App extends Component {
   componentDidMount() {
     this.props.getCurrentUser()
   }
-
 
   render() {
     return (

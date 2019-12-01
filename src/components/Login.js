@@ -10,7 +10,7 @@ const Login = () => {
     <div className="item">
       <div className="ui button primary tiny" onClick={handleClick}>
         <i className="user icon" />
-        Log In
+        Log In/Register
       </div>
     </div>
   );
