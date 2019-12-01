@@ -62,3 +62,7 @@ export const getCurrentUser = () => async dispatch => {
     dispatch(setCurrentUser(user))
   }
 }
+
+export const signup = () => async dispatch => {
+
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginForm from '../components/LoginForm';
+import SignupForm from '../components/SignupForm';
 import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/currentUser'
 import { Router, Route, Switch } from 'react-router-dom'
@@ -22,6 +23,7 @@ export class App extends Component {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/login" exact component={LoginForm} />
+              <Route path="/signup" exact component={SignupForm} />
             </Switch>
           </div>
         </Router>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Logout from './Logout'
 import Login from './Login'
+import Signup from './Signup'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -9,7 +10,12 @@ const Navbar = (props) => {
     if (props.currentUser) {
       return <Logout />
     } else {
-      return <Login />
+      return (
+        <>
+          <Login />
+          <Signup />
+        </>
+      )
     }
   }
 
