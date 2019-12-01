@@ -12,7 +12,7 @@ const Logout = ({ logout }) => {
     <div className="item">
       <div className="ui button primary tiny" onClick={handleSubmit}>
         <i className="user icon" />
-        Log out
+        Log Out
       </div>
     </div>
   );

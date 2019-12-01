@@ -1,14 +1,32 @@
 import React from 'react';
 import Logout from './Logout'
+import Login from './Login'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const renderLogButton = () => {
+    if (props.currentUser) {
+      return <Logout />
+    } else {
+      return <Login />
+    }
+  }
+
   return (
     <div className="ui secondary pointing menu">
+      <Link to="/" className="item">
+        Home
+      </Link>
       <div className="right menu">
-        <Logout />
+        {renderLogButton()}
       </div>
     </div>
   );
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return { currentUser: state.currentUser }
+}
+
+export default connect(mapStateToProps)(Navbar);
