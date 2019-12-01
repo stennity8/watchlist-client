@@ -63,6 +63,22 @@ export const getCurrentUser = () => async dispatch => {
   }
 }
 
-export const signup = () => async dispatch => {
+export const signup = (credentials) => async dispatch => {
+  const response = await fetch('http://localhost:3001/api/v1/signup', {
+    credentials: "include",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(credentials)
+  })
 
+  const newUser = await response.json()
+
+  if (newUser.error) {
+    alert(newUser.error)
+  } else {
+    dispatch(setCurrentUser(newUser))
+    history.push('/')
+  }
 }

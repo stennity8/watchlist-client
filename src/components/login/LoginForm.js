@@ -35,7 +35,7 @@ export class LoginForm extends Component {
         </div>
         <div className="field">
           <label>Password</label>
-          <input placeholder="Password" value={this.state.password} name="password" type="text" onChange={this.handleChange} autoComplete="off"></input>
+          <input placeholder="Password" value={this.state.password} name="password" type="password" onChange={this.handleChange} autoComplete="off"></input>
         </div>
         <input type="submit" value="Log In" className="ui button primary" />
       </form>
