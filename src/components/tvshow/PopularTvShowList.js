@@ -5,8 +5,8 @@ import TvShows from './TvShows'
 
 class PopularTvShowList extends Component {
   componentDidMount() {
-    this.props.fetchTvShowGenres()
-    this.props.fetchPopularTvShows()
+    // this.props.fetchTvShowGenres()
+    // this.props.fetchPopularTvShows()
   }
 
   render() {

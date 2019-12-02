@@ -7,7 +7,6 @@ const TvShows = ({ shows, currentUser, tvShowGenres }) => {
     const genres = genre_ids
       .map(genre_id => tvShowGenres
         .find(genre => genre.id === genre_id).name)
-      .flat()
       .join(', ')
 
     return (
@@ -15,7 +14,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres }) => {
     )
   }
 
-  const renderTvShow = ({ name, overview, vote_average, vote_count, first_air_date, id, poster_path, genre_ids }) => {
+  const renderTvShow = ({ name, overview, vote_average, first_air_date, id, poster_path, genre_ids }) => {
     return (
       <div className="ui grid item" key={id}>
         <div className="four wide column">
@@ -28,17 +27,22 @@ const TvShows = ({ shows, currentUser, tvShowGenres }) => {
           <div className="row">
             <p className="column"><strong>Voter Score: </strong>{vote_average}</p>
             <p className="column"><strong>First Aired: </strong>{first_air_date}</p>
-            {renderWatchListButton()}
+            {renderWatchListButton(id)}
           </div>
         </div>
       </div>
     )
   }
 
-  const renderWatchListButton = () => {
+  const addToWatchList = (id) => {
+    const show = shows.find(show => show.id === id)
+    console.log(show)
+  }
+
+  const renderWatchListButton = (id) => {
     if (currentUser) {
       return (
-        <button className="column ui button youtube">
+        <button className="column ui button youtube" onClick={() => addToWatchList(id)}>
           <i className="youtube icon"></i>
           Add to WatchList
         </button>
