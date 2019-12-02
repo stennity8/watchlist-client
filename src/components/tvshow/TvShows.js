@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { postTvShow } from '../../actions/watchList'
 
-const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow }) => {
+const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShows }) => {
 
   const matchGenres = (genre_ids) => {
     const genres = genre_ids
@@ -41,7 +41,8 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow }) => {
   }
 
   const renderWatchListButton = (id) => {
-    if (currentUser) {
+    const currentlyOnList = watchlistTvShows.find(show => show.TMDB_ID === id)
+    if (currentUser && !currentlyOnList) {
       return (
         <button className="column ui button youtube" onClick={() => addToWatchList(id)}>
           <i className="youtube icon"></i>
@@ -62,7 +63,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     shows: state[ownProps.reduxShowType],
     currentUser: state.currentUser,
-    tvShowGenres: state.tvShowGenres
+    tvShowGenres: state.tvShowGenres,
+    watchlistTvShows: state.watchlistTvShows
   }
 }
 
