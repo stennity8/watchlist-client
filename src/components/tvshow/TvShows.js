@@ -5,10 +5,15 @@ import { postTvShow } from '../../actions/watchList'
 const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShows }) => {
 
   const matchGenres = (genre_ids) => {
-    const genres = genre_ids
-      .map(genre_id => tvShowGenres
-        .find(genre => genre.id === genre_id).name)
-      .join(', ')
+    //This formula iterates over the show's genre ids and compares to the API's genres.  It checks for 
+    // non-existant genres to avoid errors.
+    const genres = genre_ids.map(genre_id => {
+      if (tvShowGenres.find(genre => genre.id === genre_id)) {
+        return tvShowGenres.find(genre => genre.id === genre_id).name
+      } else {
+        return null
+      }
+    }).join(', ')
 
     return (
       <p className="column"><strong>Genres: </strong>{genres}</p>

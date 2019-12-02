@@ -9,6 +9,7 @@ import { Router, Route, Switch } from 'react-router-dom'
 import Navbar from './navbar/Navbar'
 import history from '../history'
 import Home from './Home'
+import WatchList from './watchlist/WatchList'
 
 export class App extends Component {
   componentDidMount() {
@@ -31,6 +32,7 @@ export class App extends Component {
               <Route path="/" exact component={Home} />
               <Route path="/login" exact component={LoginForm} />
               <Route path="/signup" exact component={SignupForm} />
+              <Route path="/watchlist" exact component={WatchList} />
             </Switch>
           </div>
         </Router>
