@@ -20,7 +20,7 @@ const Navbar = (props) => {
   }
 
   return (
-    <div className="ui secondary pointing menu">
+    <div className="ui secondary pointing menu" >
       <Link to="/" className="item">
         Home
       </Link>

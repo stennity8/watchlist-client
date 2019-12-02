@@ -28,5 +28,5 @@ export const fetchTvShowGenres = () => async dispatch => {
 
   const genres = await response.json()
 
-  dispatch(setTvShowGenres(genres))
+  dispatch(setTvShowGenres(genres.genres))
 }

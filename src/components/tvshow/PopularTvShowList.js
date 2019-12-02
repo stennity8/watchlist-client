@@ -5,14 +5,14 @@ import TvShows from './TvShows'
 
 class PopularTvShowList extends Component {
   componentDidMount() {
-    // this.props.fetchTvShowGenres()
+    this.props.fetchTvShowGenres()
     this.props.fetchPopularTvShows()
   }
 
   render() {
     return (
       <div>
-        <h2 className="centered">Popular TV Shows</h2>
+        <h2>Popular TV Shows</h2>
         <TvShows reduxShowType={"popularTvShows"} />
       </div>
     )
