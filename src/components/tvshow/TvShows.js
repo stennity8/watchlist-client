@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { postTvShow } from '../../actions/watchList'
 
-const TvShows = ({ shows, currentUser, tvShowGenres }) => {
+const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow }) => {
 
   const matchGenres = (genre_ids) => {
     const genres = genre_ids
@@ -36,7 +37,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres }) => {
 
   const addToWatchList = (id) => {
     const show = shows.find(show => show.id === id)
-    console.log(show)
+    postTvShow(show, currentUser.id)
   }
 
   const renderWatchListButton = (id) => {
@@ -65,4 +66,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(TvShows)
+export default connect(mapStateToProps, { postTvShow })(TvShows)

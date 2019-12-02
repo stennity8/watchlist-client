@@ -1,5 +1,5 @@
 import { ADD_TVSHOW_TO_WATCHLIST } from "./types"
-import history from '../history'
+// import history from '../history'
 
 export const addTvShow = show => {
   return {
@@ -8,9 +8,8 @@ export const addTvShow = show => {
   }
 }
 
-export const postTvShow = (show) => async dispatch => {
-  const response = await fetch('http://localhost:3001/api/v1/', {
-    credentials: "include",
+export const postTvShow = (show, userId) => async dispatch => {
+  const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/add_watchlist_tvshow`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -18,12 +17,12 @@ export const postTvShow = (show) => async dispatch => {
     body: JSON.stringify(show)
   })
 
-  const show = await response.json()
-
-  if (show.error) {
-    alert(show.error)
+  const newShow = await response.json()
+  if (newShow.error) {
+    alert(newShow.error)
   } else {
-    dispatch(addTvShow(show))
+    console.log(newShow)
+    // dispatch(addTvShow(newShow))
     // history.push('/watchlist')
   }
 }
