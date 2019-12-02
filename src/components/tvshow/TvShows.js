@@ -11,7 +11,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
       if (tvShowGenres.find(genre => genre.id === genre_id)) {
         return tvShowGenres.find(genre => genre.id === genre_id).name
       } else {
-        return null
+        return 'unknown genre'
       }
     }).join(', ')
 

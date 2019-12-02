@@ -24,6 +24,9 @@ const Navbar = (props) => {
       <Link to="/" className="item">
         Home
       </Link>
+      <Link to="/watchlist" className="item">
+        My WatchList
+      </Link>
       <div className="right menu">
         {renderLogButton()}
       </div>
