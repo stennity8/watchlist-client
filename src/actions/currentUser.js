@@ -1,5 +1,6 @@
 import { SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "./types"
 import history from '../history'
+import { fetchWatchlistTvShows, clearWatchlist } from './watchList'
 
 export const setCurrentUser = user => {
   return {
@@ -30,6 +31,7 @@ export const login = (credentials) => async dispatch => {
     alert(user.error)
   } else {
     dispatch(setCurrentUser(user))
+    dispatch(fetchWatchlistTvShows(user.id))
     history.push('/')
   }
 }
@@ -43,6 +45,8 @@ export const logout = () => async dispatch => {
     }
   })
   dispatch(logoutCurrentUser())
+  dispatch(clearWatchlist())
+  history.push('/')
 }
 
 export const getCurrentUser = () => async dispatch => {

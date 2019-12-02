@@ -1,4 +1,4 @@
-import { LOAD_WATCHLIST, ADD_TVSHOW_TO_WATCHLIST } from "./types"
+import { LOAD_WATCHLIST, ADD_TVSHOW_TO_WATCHLIST, CLEAR_WATCHLIST } from "./types"
 // import history from '../history'
 
 export const loadTvShowWatchlist = shows => {
@@ -13,6 +13,10 @@ export const addTvShow = show => {
     type: ADD_TVSHOW_TO_WATCHLIST,
     payload: show
   }
+}
+
+export const clearWatchlist = () => {
+  return { type: CLEAR_WATCHLIST }
 }
 
 export const postTvShow = (show, userId) => async dispatch => {
