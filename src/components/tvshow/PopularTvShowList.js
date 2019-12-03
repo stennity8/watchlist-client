@@ -11,7 +11,7 @@ class PopularTvShowList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ui raised container">
         <h2>Popular TV Shows</h2>
         <TvShows reduxShowType={"popularTvShows"} />
       </div>

@@ -26,11 +26,25 @@ class SearchTvShowList extends Component {
     })
   }
 
+  renderSearchResults = () => {
+    if (this.props.shows.length > 0) {
+      return (
+        <>
+          <h2>Search Results</h2>
+          <TvShows reduxShowType={"searchTvShows"} />
+        </>
+      )
+    } else {
+      return (null)
+    }
+  }
+
   render() {
     return (
-      <div>
+      <div className="ui raised container">
         <TvSearchForm onChange={this.onChange} handleSubmit={this.handleSubmit} searchTerm={this.state.searchTerm} />
-        {this.props.shows.length > 0 ? <TvShows reduxShowType={"searchTvShows"} /> : null}
+        {this.renderSearchResults()}
+        <br />
       </div>
     )
   }
