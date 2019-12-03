@@ -36,7 +36,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
             <p className="column"><strong>Voter Score: </strong>{vote_average}</p>
             <p className="column"><strong>First Aired: </strong>{first_air_date}</p>
             {/* {history.location.pathname === "/" ? renderWatchListButton(id) : renderAdminButtons()} */}
-            {history.location.pathname === "/" ? renderWatchListButton(id) : <Admin />}
+            {history.location.pathname === "/" ? renderWatchListButton(id) : <Admin showId={id} />}
           </div>
         </div>
       </div>

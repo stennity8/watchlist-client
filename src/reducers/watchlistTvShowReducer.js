@@ -1,4 +1,4 @@
-import { ADD_TVSHOW_TO_WATCHLIST, LOAD_WATCHLIST, CLEAR_WATCHLIST } from "../actions/types"
+import { ADD_TVSHOW_TO_WATCHLIST, LOAD_WATCHLIST, CLEAR_WATCHLIST, UPDATE_TVSHOW_TO_WATCHED } from "../actions/types"
 
 const watchlistTvShowReducer = (state = [], action) => {
   switch (action.type) {
@@ -8,6 +8,8 @@ const watchlistTvShowReducer = (state = [], action) => {
       return [...state, action.payload]
     case CLEAR_WATCHLIST:
       return []
+    case UPDATE_TVSHOW_TO_WATCHED:
+      return state.filter(show => show.id !== action.payload.tv_show_id)
     default:
       return state
   }
