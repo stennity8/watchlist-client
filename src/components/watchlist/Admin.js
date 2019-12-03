@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdminButtons from './AdminButtons'
-import { postTvShowWatchListUpdate } from '../../actions/watchList'
+import { postTvShowWatchListUpdate, deleteTvShowWatchList } from '../../actions/watchList'
 import { connect } from 'react-redux'
 
 export class Admin extends Component {
@@ -9,7 +9,7 @@ export class Admin extends Component {
   }
 
   removeTvShowFromWathclist = () => {
-    console.log('remove')
+    this.props.deleteTvShowWatchList(this.props.showId, this.props.currentUser.id)
   }
 
   render() {
@@ -28,4 +28,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { postTvShowWatchListUpdate })(Admin);
+export default connect(mapStateToProps, { postTvShowWatchListUpdate, deleteTvShowWatchList })(Admin);

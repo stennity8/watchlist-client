@@ -1,5 +1,10 @@
-import { LOAD_WATCHLIST, ADD_TVSHOW_TO_WATCHLIST, CLEAR_WATCHLIST, UPDATE_TVSHOW_TO_WATCHED } from "./types"
-// import history from '../history'
+import {
+  LOAD_WATCHLIST,
+  ADD_TVSHOW_TO_WATCHLIST,
+  CLEAR_WATCHLIST,
+  UPDATE_TVSHOW_TO_WATCHED,
+  REMOVE_TVSHOW_FROM_WATCHLIST
+} from "./types"
 
 export const loadTvShowWatchlist = shows => {
   return {
@@ -26,6 +31,13 @@ export const updateTvShowWatchList = ids => {
   }
 }
 
+export const removeTvShowFromWatchList = ids => {
+  return {
+    type: REMOVE_TVSHOW_FROM_WATCHLIST,
+    payload: ids
+  }
+}
+
 export const postTvShow = (show, userId) => async dispatch => {
   const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/add_watchlist_tvshow`, {
     method: "POST",
@@ -40,7 +52,6 @@ export const postTvShow = (show, userId) => async dispatch => {
     alert(newShow.error)
   } else {
     dispatch(addTvShow(newShow))
-    // history.push('/watchlist')
   }
 }
 
@@ -74,5 +85,22 @@ export const postTvShowWatchListUpdate = (showId, userId) => async dispatch => {
     alert(ids.error)
   } else {
     dispatch(updateTvShowWatchList(ids))
+  }
+}
+
+export const deleteTvShowWatchList = (showId, userId) => async dispatch => {
+  const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/remove_tvshow/${showId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+
+  const ids = await response.json()
+  console.log(ids)
+  if (ids.error) {
+    alert(ids.error)
+  } else {
+    dispatch(removeTvShowFromWatchList(ids))
   }
 }
