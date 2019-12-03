@@ -7,7 +7,6 @@ const watchlistTvShowReducer = (state = [], action) => {
     case ADD_TVSHOW_TO_WATCHLIST:
       return [...state, action.payload]
     case CLEAR_WATCHLIST:
-      console.log('clearing state')
       return []
     default:
       return state
