@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { postTvShow } from '../../actions/watchList'
 import history from '../../history'
-import AdminButtons from './AdminButtons'
+import Admin from '../watchlist/Admin'
 
 const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShows }) => {
 
@@ -36,7 +36,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
             <p className="column"><strong>Voter Score: </strong>{vote_average}</p>
             <p className="column"><strong>First Aired: </strong>{first_air_date}</p>
             {/* {history.location.pathname === "/" ? renderWatchListButton(id) : renderAdminButtons()} */}
-            {history.location.pathname === "/" ? renderWatchListButton(id) : AdminButtons()}
+            {history.location.pathname === "/" ? renderWatchListButton(id) : <Admin />}
           </div>
         </div>
       </div>
