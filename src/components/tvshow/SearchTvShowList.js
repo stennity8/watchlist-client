@@ -19,7 +19,8 @@ class SearchTvShowList extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.fetchSearchTvShows(this.state)
+    let searchString = this.state.searchTerm.split(' ').join('+')
+    this.props.fetchSearchTvShows(searchString)
     this.setState({
       searchTerm: ""
     })
@@ -28,15 +29,15 @@ class SearchTvShowList extends Component {
   render() {
     return (
       <div>
-        <TvSearchForm />
-        {this.props.searchTvShows.lenghth > 0 ? <TvShows reduxShowType={"searchTvShows"} /> : null}
+        <TvSearchForm onChange={this.onChange} handleSubmit={this.handleSubmit} searchTerm={this.state.searchTerm} />
+        {this.props.shows.length > 0 ? <TvShows reduxShowType={"searchTvShows"} /> : null}
       </div>
     )
   }
 }
 
-mapStateToProps = (state) => {
-  shows: state.searchTvShows
+const mapStateToProps = (state) => {
+  return { shows: state.searchTvShows }
 }
 
 export default connect(mapStateToProps, { fetchSearchTvShows })(SearchTvShowList)

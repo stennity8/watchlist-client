@@ -1,4 +1,4 @@
-import { SET_POPULAR_TVSHOWS, SET_TVSHOW_GENRES } from './types'
+import { SET_POPULAR_TVSHOWS, SET_TVSHOW_GENRES, SET_SEARCH_TVSHOWS } from './types'
 import { TMDB_KEY } from '../api_keys'
 
 export const setPopularTvShows = (tvShows) => {
@@ -12,6 +12,13 @@ export const setTvShowGenres = (genres) => {
   return {
     type: SET_TVSHOW_GENRES,
     payload: genres
+  }
+}
+
+export const setSearchTvShow = (tvShows) => {
+  return {
+    type: SET_SEARCH_TVSHOWS,
+    payload: tvShows
   }
 }
 
@@ -29,4 +36,12 @@ export const fetchTvShowGenres = () => async dispatch => {
   const genres = await response.json()
 
   dispatch(setTvShowGenres(genres.genres))
+}
+
+export const fetchSearchTvShows = (queryString) => async dispatch => {
+  const response = await fetch(`https://api.themoviedb.org/3/search/tv?api_key=${TMDB_KEY}&language=en-US&query=${queryString}`)
+
+  const tvShows = await response.json()
+
+  dispatch(setSearchTvShow(tvShows.results))
 }
