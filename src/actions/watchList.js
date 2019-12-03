@@ -97,7 +97,7 @@ export const deleteTvShowWatchList = (showId, userId) => async dispatch => {
   })
 
   const ids = await response.json()
-  console.log(ids)
+
   if (ids.error) {
     alert(ids.error)
   } else {

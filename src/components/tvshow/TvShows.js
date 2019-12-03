@@ -35,7 +35,6 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
           <div className="row">
             <p className="column"><strong>Voter Score: </strong>{vote_average}</p>
             <p className="column"><strong>First Aired: </strong>{first_air_date}</p>
-            {/* {history.location.pathname === "/" ? renderWatchListButton(id) : renderAdminButtons()} */}
             {history.location.pathname === "/" ? renderWatchListButton(id) : <Admin showId={id} />}
           </div>
         </div>
@@ -59,9 +58,9 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
       )
     } else if (currentlyOnList) {
       return (
-        <button className="column ui circular icon button green" onClick={() => addToWatchList(id)}>
+        <div className="column ui circular icon button green" onClick={() => history.push('/watchlist')}>
           <i className="binoculars icon"></i>
-        </button>
+        </div>
       )
     }
   }
