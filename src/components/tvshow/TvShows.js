@@ -55,6 +55,12 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
           Add to WatchList
         </button>
       )
+    } else if (currentlyOnList) {
+      return (
+        <button className="column ui circular icon button green" onClick={() => addToWatchList(id)}>
+          <i className="binoculars icon"></i>
+        </button>
+      )
     }
   }
 
