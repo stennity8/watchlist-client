@@ -24,18 +24,20 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="ui container">
-        <Router history={history}>
-          <div>
-            <Navbar />
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/login" exact component={LoginForm} />
-              <Route path="/signup" exact component={SignupForm} />
-              <Route path="/watchlist" exact component={WatchList} />
-            </Switch>
-          </div>
-        </Router>
+      <div>
+        <div className="ui container">
+          <Router history={history}>
+            <div>
+              <Navbar />
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/login" exact component={LoginForm} />
+                <Route path="/signup" exact component={SignupForm} />
+                <Route path="/watchlist" exact component={WatchList} />
+              </Switch>
+            </div>
+          </Router>
+        </div>
       </div>
     );
   }

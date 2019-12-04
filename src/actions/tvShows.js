@@ -1,4 +1,4 @@
-import { SET_POPULAR_TVSHOWS, SET_TVSHOW_GENRES, SET_SEARCH_TVSHOWS } from './types'
+import { SET_POPULAR_TVSHOWS, SET_TVSHOW_GENRES, SET_SEARCH_TVSHOWS, CLEAR_SEARCH_TVSHOWS } from './types'
 import { TMDB_KEY } from '../api_keys'
 
 export const setPopularTvShows = (tvShows) => {
@@ -19,6 +19,12 @@ export const setSearchTvShow = (tvShows) => {
   return {
     type: SET_SEARCH_TVSHOWS,
     payload: tvShows
+  }
+}
+
+export const clearSearchTvShow = () => {
+  return {
+    type: CLEAR_SEARCH_TVSHOWS
   }
 }
 
