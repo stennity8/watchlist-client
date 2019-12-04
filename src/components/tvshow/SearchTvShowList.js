@@ -27,7 +27,9 @@ class SearchTvShowList extends Component {
   }
 
   renderSearchResults = () => {
-    if (this.props.shows.length > 0) {
+    if (typeof this.props.shows === "string") {
+      return (<h2>{this.props.shows}</h2>)
+    } else if (this.props.shows.length > 0) {
       return (
         <>
           <h2>Search Results</h2>

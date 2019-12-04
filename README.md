@@ -2,7 +2,7 @@
 
 ---
 
-### WatchList Client handles the front-end for the WatchList application.  This WatchList application allows the users to sign up and create a watch list of TvShows.  Currently TvShows are limited to the top 20 most popular shows on The Movie DB.  
+### WatchList Client handles the front-end for the WatchList application.  This WatchList application allows the users to sign up and create a watch list of TvShows.  Users can pick from the most popular shows on The Movied Database or search for a show.  
 
 
 GitHub for Front-end: `https://github.com/stennity8/watchlist-client.git`
