@@ -4,11 +4,15 @@ const TvSearchForm = ({ onChange, handleSubmit, searchTerm }) => {
   return (
     <div>
       <form onSubmit={handleSubmit} className="ui form error">
-        <h3>Search for TV Show:</h3>
-        <div className="field">
-          <input placeholder="Search titles..." value={searchTerm} name="search-shows" type="text" onChange={onChange} autoComplete="off"></input>
+        <div class="ui fluid action input">
+          <input
+            value={searchTerm} name="search-shows"
+            type="text" onChange={onChange}
+            autoComplete="off" placeholder="Search TV shows..." />
+          <button class="ui button green">
+            <i class="search icon"></i>
+          </button>
         </div>
-        <input type="submit" value="Search" className="ui button primary" />
       </form>
     </div>
   );
