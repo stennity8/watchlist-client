@@ -39,18 +39,16 @@ export class App extends Component {
   };
 
   render() {
-    let sideDrawer;
     let backdrop
 
     if (this.state.sideDrawerOpen) {
-      sideDrawer = <SideDrawer />
       backdrop = <Backdrop onClick={this.backdropClickHandler} />
     }
     return (
       <div style={{ height: "100%" }}>
         <Router history={history}>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-          {sideDrawer}
+          <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
           <div className="ui container" style={{ marginTop: "76px" }}>
             <div>
