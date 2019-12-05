@@ -11,7 +11,7 @@ const SideDrawer = props => {
   return (
     <nav className={drawerClasses}>
       <ul>
-        <li><Link to="/watchlist">WatchList</Link></li>
+        <li><Link to="/watchlist"><i className="ui icon user circle"></i>My WatchList</Link></li>
       </ul>
     </nav>
   );

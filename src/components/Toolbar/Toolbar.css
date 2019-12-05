@@ -6,7 +6,7 @@
   /* background-color: aqua; */
   background-color: white;
   height: 56px;
-  border-bottom: 1px solid rgba(34,36,38,.15);
+  /* border-bottom: 1px solid rgba(34,36,38,.15); */
   z-index: 2;
 }
 
@@ -39,10 +39,11 @@
  }
 
  .toolbar-navigation-items ul {
+   display: flex;
    list-style: none;
    margin: 0;
    padding: 0;
-   display: flex;
+   align-items: center;
  }
 
  .toolbar-navigation-items li {
@@ -53,10 +54,22 @@
    flex: 1;
  }
 
+
  @media (max-width: 768px) {
   .toolbar-navigation-items{
     display: none;
-  } 
+  }
+  
+  .toolbar-logo {
+    margin: 0;
+  }
+
+  .toolbar-navigation {
+    justify-content: space-between;
+  }
+  .spacer{
+    flex: none;
+  }
  }
 
  @media (min-width: 769px) {
