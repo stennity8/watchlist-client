@@ -48,7 +48,7 @@ export class App extends Component {
       <div style={{ height: "100%" }}>
         <Router history={history}>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
+          <SideDrawer show={this.state.sideDrawerOpen} linkClickHandler={this.backdropClickHandler} />
           {backdrop}
           <div className="ui container" style={{ marginTop: "76px" }}>
             <div>
