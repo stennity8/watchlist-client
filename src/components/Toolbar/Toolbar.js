@@ -23,6 +23,7 @@ const toolbar = props => {
       )
     }
   }
+
   return (
     <header className="toolbar">
       <nav className="toolbar-navigation">

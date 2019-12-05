@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <div className="item">
       <div className="ui button primary tiny" onClick={handleClick}>
-        <i className="user icon" />
+        <i className="sign-in icon" />
         Log In
       </div>
     </div>
