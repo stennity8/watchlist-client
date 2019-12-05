@@ -1,12 +1,17 @@
 import React from 'react';
 import './Toolbar.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import ToggleButton from '../SideDrawer/ToggleButton';
 
 const toolbar = props => (
   <header className="toolbar">
     <nav className="toolbar-navigation">
-      <div></div>
-      <div><Link to="/" className="toolbar-logo">LOGO</Link></div>
+      <div>
+        <ToggleButton onClick={props.drawerClickHandler} />
+      </div>
+      <div className="toolbar-logo">
+        <Link to="/" className="toolbar-logo-link">LOGO</Link>
+      </div>
       <div className="spacer"> </div>
       <div className="toolbar-navigation-items">
         <ul>

@@ -6,28 +6,52 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/currentUser'
 import { fetchWatchlistTvShows } from '../actions/watchList'
 import { Router, Route, Switch } from 'react-router-dom'
-import Navbar from './Navbar/Navbar'
+// import Navbar from './Navbar/Navbar'
 import history from '../history'
 import Home from './Home'
 import WatchList from './Watchlist/WatchList'
 import Toolbar from './Toolbar/Toolbar'
+import SideDrawer from './SideDrawer/SideDrawer';
+import Backdrop from './Backdrop/Backdrop';
 
 export class App extends Component {
+  state = {
+    sideDrawerOpen: false
+  };
+
   componentDidMount() {
     this.props.getCurrentUser()
       .then(() => {
         if (this.props.currentUser) {
           this.props.fetchWatchlistTvShows(this.props.currentUser.id)
         }
-      }
-      )
-  }
+      })
+  };
+
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen }
+    })
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false })
+  };
 
   render() {
+    let sideDrawer;
+    let backdrop
+
+    if (this.state.sideDrawerOpen) {
+      sideDrawer = <SideDrawer />
+      backdrop = <Backdrop onClick={this.backdropClickHandler} />
+    }
     return (
-      <div>
+      <div style={{ height: "100%" }}>
         <Router history={history}>
-          <Toolbar />
+          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+          {sideDrawer}
+          {backdrop}
           <div className="ui container" style={{ marginTop: "76px" }}>
             <div>
               {/* <Navbar /> */}
