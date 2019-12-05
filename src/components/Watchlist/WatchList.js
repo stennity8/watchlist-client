@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchTvShowGenres } from '../../actions/tvShows'
-import TvShows from '../tvshow/TvShows'
+import TvShows from '../TvShow/TvShows'
 
 class WatchList extends Component {
   componentDidMount() {

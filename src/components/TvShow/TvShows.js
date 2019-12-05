@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { postTvShow } from '../../actions/watchList'
 import history from '../../history'
-import Admin from '../watchlist/Admin'
+import Admin from '../Watchlist/Admin'
 
 const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShows }) => {
 

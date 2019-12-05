@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PopularTvShowList from './tvshow/PopularTvShowList';
-import SearchTvShowList from './tvshow/SearchTvShowList';
+import PopularTvShowList from './TvShow/PopularTvShowList';
+import SearchTvShowList from './TvShow/SearchTvShowList';
 import { connect } from 'react-redux';
 import { clearSearchTvShow } from '../actions/tvShows';
 

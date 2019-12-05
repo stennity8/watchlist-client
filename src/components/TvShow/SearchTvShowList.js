@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchSearchTvShows } from '../../actions/tvShows'
-import TvSearchForm from '../search/TvSearchForm'
+import TvSearchForm from '../Search/TvSearchForm'
 import TvShows from './TvShows'
 
 class SearchTvShowList extends Component {

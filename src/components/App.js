@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import LoginForm from '../components/login/LoginForm';
-import SignupForm from '../components/signup/SignupForm';
+import LoginForm from './Login/LoginForm';
+import SignupForm from './Signup/SignupForm';
 import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/currentUser'
 import { fetchWatchlistTvShows } from '../actions/watchList'
 import { Router, Route, Switch } from 'react-router-dom'
-import Navbar from './navbar/Navbar'
+import Navbar from './Navbar/Navbar'
 import history from '../history'
 import Home from './Home'
-import WatchList from './watchlist/WatchList'
+import WatchList from './Watchlist/WatchList'
+import Toolbar from './Toolbar/Toolbar'
 
 export class App extends Component {
   componentDidMount() {
@@ -25,10 +26,11 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <div className="ui container">
-          <Router history={history}>
+        <Router history={history}>
+          <Toolbar />
+          <div className="ui container" style={{ marginTop: "76px" }}>
             <div>
-              <Navbar />
+              {/* <Navbar /> */}
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/login" exact component={LoginForm} />
@@ -36,8 +38,8 @@ export class App extends Component {
                 <Route path="/watchlist" exact component={WatchList} />
               </Switch>
             </div>
-          </Router>
-        </div>
+          </div>
+        </Router>
       </div>
     );
   }

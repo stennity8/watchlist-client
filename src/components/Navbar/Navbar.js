@@ -1,7 +1,7 @@
 import React from 'react';
-import Logout from '../logout/Logout'
-import Login from '../login/Login'
-import Signup from '../signup/Signup'
+import Logout from '../Logout/Logout'
+import Login from '../Login/Login'
+import Signup from '../Signup/Signup'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
