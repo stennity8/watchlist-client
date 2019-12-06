@@ -5,8 +5,8 @@ import { signup } from '../../actions/currentUser';
 export class SignupForm extends Component {
   state = {
     username: "",
-    password_digest: "",
-    confirm_password: ""
+    password: "",
+    password_confirmation: ""
   }
 
   handleChange = (event) => {
@@ -22,8 +22,8 @@ export class SignupForm extends Component {
     this.props.signup(this.state)
     this.setState({
       username: "",
-      password_digest: "",
-      confirm_password: ""
+      password: "",
+      password_confirmation: ""
     })
   }
 
@@ -37,11 +37,11 @@ export class SignupForm extends Component {
         </div>
         <div className="field">
           <label>Password</label>
-          <input placeholder="Password" value={this.state.password_digest} name="password_digest" type="password" onChange={this.handleChange} autoComplete="off"></input>
+          <input placeholder="Password" value={this.state.password} name="password" type="password" onChange={this.handleChange} autoComplete="off"></input>
         </div>
         <div className="field">
           <label>Confirm Password</label>
-          <input placeholder="Confirm Password" value={this.state.confirm_password} name="confirm_password" type="password" onChange={this.handleChange} autoComplete="off"></input>
+          <input placeholder="Confirm Password" value={this.state.password_confirmation} name="password_confirmation" type="password" onChange={this.handleChange} autoComplete="off"></input>
         </div>
         <input type="submit" value="Sign Up" className="ui button primary" />
       </form>
