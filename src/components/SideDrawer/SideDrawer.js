@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import './SideDrawer.css';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/currentUser';
+import { clearSearchTvShow } from '../../actions/tvShows'
 
-
-
-const SideDrawer = ({ show, linkClickHandler, currentUser, logout }) => {
+const SideDrawer = ({ show, linkClickHandler, currentUser, logout, clearSearchTvShow }) => {
   let drawerClasses = 'side-drawer'
   if (show) {
     drawerClasses = 'side-drawer open'
@@ -32,10 +31,15 @@ const SideDrawer = ({ show, linkClickHandler, currentUser, logout }) => {
     logout()
   }
 
+  const clearSearch = () => {
+    linkClickHandler()
+    clearSearchTvShow()
+  }
+
   return (
     <nav className={drawerClasses}>
       <ul>
-        <li><Link to="/" onClick={linkClickHandler}><i className="ui icon home circle"></i>Home</Link></li>
+        <li><Link to="/" onClick={clearSearch}><i className="ui icon home circle"></i>Home</Link></li>
         {currentUser ? <li><Link to="/watchlist" onClick={linkClickHandler}><i className="ui icon user circle"></i>My WatchList</Link></li> : null}
         {userLinks()}
       </ul>
@@ -47,4 +51,4 @@ const mapStateToProps = (state) => {
   return { currentUser: state.currentUser }
 }
 
-export default connect(mapStateToProps, { logout })(SideDrawer);
+export default connect(mapStateToProps, { logout, clearSearchTvShow })(SideDrawer);

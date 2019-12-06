@@ -6,6 +6,7 @@ import './Toolbar.css';
 import { Link } from 'react-router-dom';
 import ToggleButton from '../SideDrawer/ToggleButton';
 import { connect } from 'react-redux'
+import { clearSearchTvShow } from '../../actions/tvShows'
 
 
 const toolbar = props => {
@@ -31,7 +32,7 @@ const toolbar = props => {
           <ToggleButton onClick={props.drawerClickHandler} />
         </div>
         <div className="toolbar-logo">
-          <Link to="/" className="toolbar-logo-link">
+          <Link to="/" className="toolbar-logo-link" onClick={() => props.clearSearchTvShow()}>
             <i className="binoculars icon"></i>
             WatchList
           </Link>
@@ -52,4 +53,4 @@ const mapStateToProps = (state) => {
   return { currentUser: state.currentUser }
 }
 
-export default connect(mapStateToProps)(toolbar);
+export default connect(mapStateToProps, { clearSearchTvShow })(toolbar);
