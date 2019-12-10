@@ -14,6 +14,7 @@ import WatchList from './Watchlist/WatchList'
 import Toolbar from './Toolbar/Toolbar'
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
+import Footer from './Footer/Footer'
 
 export class App extends Component {
   state = {
@@ -62,7 +63,8 @@ export class App extends Component {
             </div>
           </div>
         </Router>
-      </div>
+        <Footer />
+      </div >
     );
   }
 }
