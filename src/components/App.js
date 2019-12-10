@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import LoginForm from './Login/LoginForm';
+// import LoginForm from './Login/LoginForm';
 import LoginReduxForm from './Login/LoginReduxForm'
-import SignupForm from './Signup/SignupForm';
+// import SignupForm from './Signup/SignupForm';
+import SignupReduxForm from './Signup/SignupReduxForm'
 import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/currentUser'
 import { fetchWatchlistTvShows } from '../actions/watchList'
 import { Router, Route, Switch } from 'react-router-dom'
-// import Navbar from './Navbar/Navbar'
 import history from '../history'
 import Home from './Home'
 import WatchList from './Watchlist/WatchList'
@@ -56,7 +56,7 @@ export class App extends Component {
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/login" exact component={LoginReduxForm} />
-                <Route path="/signup" exact component={SignupForm} />
+                <Route path="/signup" exact component={SignupReduxForm} />
                 <Route path="/watchlist" exact component={WatchList} />
               </Switch>
             </div>
