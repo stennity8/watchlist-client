@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginForm from './Login/LoginForm';
+import LoginReduxForm from './Login/LoginReduxForm'
 import SignupForm from './Signup/SignupForm';
 import { connect } from 'react-redux';
 import { getCurrentUser } from '../actions/currentUser'
@@ -54,7 +55,7 @@ export class App extends Component {
             <div>
               <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/login" exact component={LoginForm} />
+                <Route path="/login" exact component={LoginReduxForm} />
                 <Route path="/signup" exact component={SignupForm} />
                 <Route path="/watchlist" exact component={WatchList} />
               </Switch>
