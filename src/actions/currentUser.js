@@ -1,7 +1,7 @@
 import { SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "./types"
 import history from '../history'
 import { fetchWatchlistTvShows, clearWatchlist } from './watchList'
-const URL = 'http://localhost:3001/api/v1/'
+const URL = 'https://watchlist-backend-api.herokuapp.com/'
 
 export const setCurrentUser = user => {
   return {
