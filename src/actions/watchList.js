@@ -6,7 +6,7 @@ import {
   REMOVE_TVSHOW_FROM_WATCHLIST
 } from "./types"
 
-const URL = 'https://watchlist-backend-api.herokuapp.com/'
+const URL = 'https://watchlist-backend-api.herokuapp.com/api/v1/'
 
 export const loadTvShowWatchlist = shows => {
   return {
