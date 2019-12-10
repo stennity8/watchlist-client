@@ -80,7 +80,7 @@ export const signup = (credentials) => async dispatch => {
   const newUser = await response.json()
 
   if (newUser.error) {
-    alert(newUser.error)
+    alert("Username has already been taken")
   } else {
     dispatch(setCurrentUser(newUser))
     history.push('/')
