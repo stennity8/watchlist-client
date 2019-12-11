@@ -14,7 +14,6 @@ import WatchList from './Watchlist/WatchList'
 import Toolbar from './Toolbar/Toolbar'
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
-import Footer from './Footer/Footer'
 
 export class App extends Component {
   state = {
@@ -47,7 +46,7 @@ export class App extends Component {
       backdrop = <Backdrop onClick={this.backdropClickHandler} />
     }
     return (
-      <div style={{ height: "100%" }}>
+      <div style={{ height: "100%" }} className="site-content">
         <Router history={history}>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} linkClickHandler={this.backdropClickHandler} />
@@ -63,7 +62,6 @@ export class App extends Component {
             </div>
           </div>
         </Router>
-        <Footer />
       </div >
     );
   }
