@@ -5,11 +5,9 @@
 ### WatchList Client handles the front-end for the WatchList application.  This WatchList application allows the users to sign up and create a watch list of TvShows.  Users can pick from the most popular shows on The Movied Database or search for a show.  
 
 
-GitHub for Front-end: `https://github.com/stennity8/watchlist-client.git`
+GitHub for Back-end: `https://github.com/stennity8/watchlist-api.git`
 
-Heroku link: COMING SOON
-
-Video Walk-through: COMING SOON
+Netlify link: `https://watch-list.netlify.com/`
 
 ---
 
