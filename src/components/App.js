@@ -20,7 +20,14 @@ export class App extends Component {
     sideDrawerOpen: false
   };
 
+  wakeHeroku = async () => {
+    const response = await fetch('https://watchlist-backend-api.herokuapp.com/api/v1/')
+  }
+
   componentDidMount() {
+    //Wake Heroku on load
+    this.wakeHeroku()
+
     this.props.getCurrentUser()
       .then(() => {
         if (this.props.currentUser) {
@@ -46,7 +53,7 @@ export class App extends Component {
       backdrop = <Backdrop onClick={this.backdropClickHandler} />
     }
     return (
-      <div style={{ height: "100%" }}>
+      <div style={{ height: "100%" }} className="site-content">
         <Router history={history}>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} linkClickHandler={this.backdropClickHandler} />
@@ -62,7 +69,7 @@ export class App extends Component {
             </div>
           </div>
         </Router>
-      </div>
+      </div >
     );
   }
 }

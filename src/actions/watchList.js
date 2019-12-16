@@ -6,6 +6,8 @@ import {
   REMOVE_TVSHOW_FROM_WATCHLIST
 } from "./types"
 
+const URL = 'https://watchlist-backend-api.herokuapp.com/api/v1/'
+
 export const loadTvShowWatchlist = shows => {
   return {
     type: LOAD_WATCHLIST,
@@ -39,7 +41,7 @@ export const removeTvShowFromWatchList = ids => {
 }
 
 export const postTvShow = (show, userId) => async dispatch => {
-  const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/add_watchlist_tvshow`, {
+  const response = await fetch(`${URL}users/${userId}/add_watchlist_tvshow`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -56,7 +58,7 @@ export const postTvShow = (show, userId) => async dispatch => {
 }
 
 export const fetchWatchlistTvShows = (userId) => async dispatch => {
-  const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/unwatched_tvshows`, {
+  const response = await fetch(`${URL}users/${userId}/unwatched_tvshows`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json"
@@ -72,7 +74,7 @@ export const fetchWatchlistTvShows = (userId) => async dispatch => {
 }
 
 export const postTvShowWatchListUpdate = (showId, userId) => async dispatch => {
-  const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/watched_tvshow/${showId}`, {
+  const response = await fetch(`${URL}users/${userId}/watched_tvshow/${showId}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -89,7 +91,7 @@ export const postTvShowWatchListUpdate = (showId, userId) => async dispatch => {
 }
 
 export const deleteTvShowWatchList = (showId, userId) => async dispatch => {
-  const response = await fetch(`http://localhost:3001/api/v1/users/${userId}/remove_tvshow/${showId}`, {
+  const response = await fetch(`${URL}users/${userId}/remove_tvshow/${showId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
