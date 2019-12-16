@@ -20,13 +20,14 @@ export class App extends Component {
     sideDrawerOpen: false
   };
 
-  wakeHeroku = async () => {
-    const response = await fetch('https://watchlist-backend-api.herokuapp.com/api/v1/')
-  }
+  // Uncomment for deployment
+  // wakeHeroku = async () => {
+  //   const response = await fetch('https://watchlist-backend-api.herokuapp.com/api/v1/')
+  // }
 
   componentDidMount() {
-    //Wake Heroku on load
-    this.wakeHeroku()
+    //Wake Heroku on load - Uncomment for deployment
+    // this.wakeHeroku()
 
     this.props.getCurrentUser()
       .then(() => {
