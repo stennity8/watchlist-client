@@ -55,8 +55,14 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
         return (
           <button className="column ui button youtube" onClick={() => addToWatchList(id)}>
             <i className="youtube icon"></i>
-            Add to WatchList
+            Watch Again
           </button>
+        )
+      } else {
+        return (
+          <div className="column ui circular icon button green" onClick={() => history.push('/watchlist')}>
+            <i className="binoculars icon"></i>
+          </div>
         )
       }
     } else {
