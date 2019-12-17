@@ -5,6 +5,7 @@ import tvShowGenres from './tvShowGenreReducer'
 import watchlistTvShows from './watchlistTvShowReducer'
 import searchTvShows from './searchTvShowsReducer'
 import { reducer as form } from 'redux-form'
+import watchedTvShows from './watchedTvShowReducer'
 
 export default combineReducers({
   currentUser,
@@ -12,5 +13,6 @@ export default combineReducers({
   tvShowGenres,
   watchlistTvShows,
   searchTvShows,
-  form
+  form,
+  watchedTvShows
 })

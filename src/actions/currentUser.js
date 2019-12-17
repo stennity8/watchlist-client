@@ -1,11 +1,8 @@
 import { SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "./types"
 import history from '../history'
 import { fetchWatchlistTvShows, clearWatchlist } from './watchList'
-// URL for deployment
-// const URL = 'https://watchlist-backend-api.herokuapp.com/api/v1/'
+import { LOCALURL } from './url'
 
-// URL for local development
-const URL = 'http://localhost:3001/api/v1/'
 
 export const setCurrentUser = user => {
   return {
@@ -21,7 +18,7 @@ export const logoutCurrentUser = () => {
 }
 
 export const login = (credentials) => async dispatch => {
-  const response = await fetch(`${URL}login`, {
+  const response = await fetch(`${LOCALURL}login`, {
     credentials: "include",
     method: "POST",
     headers: {
@@ -42,7 +39,7 @@ export const login = (credentials) => async dispatch => {
 }
 
 export const logout = () => async dispatch => {
-  await fetch(`${URL}logout`, {
+  await fetch(`${LOCALURL}logout`, {
     credentials: "include",
     method: "DELETE",
     headers: {
@@ -55,7 +52,7 @@ export const logout = () => async dispatch => {
 }
 
 export const getCurrentUser = () => async dispatch => {
-  const response = await fetch(`${URL}current_user`, {
+  const response = await fetch(`${LOCALURL}current_user`, {
     credentials: "include",
     method: "GET",
     headers: {
@@ -73,7 +70,7 @@ export const getCurrentUser = () => async dispatch => {
 }
 
 export const signup = (credentials) => async dispatch => {
-  const response = await fetch(`${URL}signup`, {
+  const response = await fetch(`${LOCALURL}signup`, {
     credentials: "include",
     method: "POST",
     headers: {

@@ -1,6 +1,7 @@
 import { SET_POPULAR_TVSHOWS, SET_TVSHOW_GENRES, SET_SEARCH_TVSHOWS, CLEAR_SEARCH_TVSHOWS } from './types'
+import { TMDBURL } from './url'
 const TMDB_KEY = process.env.REACT_APP_TMDB_API_KEY
-const URL = 'https://api.themoviedb.org/3/'
+
 
 export const setPopularTvShows = (tvShows) => {
   return {
@@ -30,7 +31,7 @@ export const clearSearchTvShow = () => {
 }
 
 export const fetchPopularTvShows = (page) => async dispatch => {
-  const response = await fetch(`${URL}tv/popular?api_key=${TMDB_KEY}&language=en-US&page=${page}`)
+  const response = await fetch(`${TMDBURL}tv/popular?api_key=${TMDB_KEY}&language=en-US&page=${page}`)
 
   const tvShows = await response.json()
 
@@ -38,7 +39,7 @@ export const fetchPopularTvShows = (page) => async dispatch => {
 }
 
 export const fetchTvShowGenres = () => async dispatch => {
-  const response = await fetch(`${URL}genre/tv/list?api_key=${TMDB_KEY}&language=en-US`)
+  const response = await fetch(`${TMDBURL}genre/tv/list?api_key=${TMDB_KEY}&language=en-US`)
 
   const genres = await response.json()
 
@@ -46,7 +47,7 @@ export const fetchTvShowGenres = () => async dispatch => {
 }
 
 export const fetchSearchTvShows = (queryString) => async dispatch => {
-  const response = await fetch(`${URL}search/tv?api_key=${TMDB_KEY}&language=en-US&query=${queryString}`)
+  const response = await fetch(`${TMDBURL}search/tv?api_key=${TMDB_KEY}&language=en-US&query=${queryString}`)
 
   const tvShows = await response.json()
 
