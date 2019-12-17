@@ -5,6 +5,7 @@ import history from '../../history'
 import Admin from '../Watchlist/Admin'
 
 const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShows, watchedTvShows }) => {
+  const currentWatchListTMDB_ID = watchlistTvShows.map(show => show.TMDB_ID)
 
   const matchGenres = (genre_ids) => {
     //This formula iterates over the show's genre ids and compares to the API's genres.  It checks for 
@@ -22,7 +23,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
     )
   }
 
-  const renderTvShow = ({ name, overview, vote_average, first_air_date, id, poster_path, genre_ids }) => {
+  const renderTvShow = ({ name, overview, vote_average, first_air_date, id, poster_path, genre_ids, TMDB_ID }) => {
     return (
       <div className="ui grid item" key={id}>
         <div className="four wide column">
@@ -35,12 +36,34 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
           <div className="row">
             <p className="column"><strong>Voter Score: </strong>{vote_average}</p>
             <p className="column"><strong>First Aired: </strong>{first_air_date}</p>
-            {history.location.pathname === "/" ? renderWatchListButton(id) : <Admin showId={id} />}
+            {renderButtons(id, TMDB_ID)}
             {history.location.pathname === "/" ? renderWatchedButton(id) : null}
           </div>
         </div>
       </div>
     )
+  }
+
+  const renderButtons = (id, TMDB_ID) => {
+
+    if (history.location.pathname === '/') {
+      return (
+        renderWatchListButton(id)
+      )
+    } else if (history.location.pathname === '/watched') {
+      if (!currentWatchListTMDB_ID.includes(TMDB_ID)) {
+        return (
+          <button className="column ui button youtube" onClick={() => addToWatchList(id)}>
+            <i className="youtube icon"></i>
+            Add to WatchList
+          </button>
+        )
+      }
+    } else {
+      return (
+        <Admin showId={id} />
+      )
+    }
   }
 
   const addToWatchList = (id) => {
@@ -91,7 +114,7 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.currentUser,
     tvShowGenres: state.tvShowGenres,
     watchlistTvShows: state.watchlistTvShows,
-    watchedTvShows: state.watchedTvShows
+    watchedTvShows: state.watchedTvShows,
   }
 }
 

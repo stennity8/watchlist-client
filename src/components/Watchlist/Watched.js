@@ -11,8 +11,8 @@ class Watched extends Component {
   render() {
     return (
       <div>
-        <h2>TV Shows Watchlist</h2>
-        <TvShows reduxShowType={"watchlistTvShows"} />
+        <h2>Watched TV Shows</h2>
+        <TvShows reduxShowType={"watchedTvShows"} />
       </div>
     )
   }

@@ -7,6 +7,7 @@ import {
 } from "./types"
 
 import { LOCALURL } from './url'
+import { fetchWatchedTvShows } from './watched'
 
 export const loadTvShowWatchlist = shows => {
   return {
@@ -87,6 +88,7 @@ export const postTvShowWatchListUpdate = (showId, userId) => async dispatch => {
     alert(ids.error)
   } else {
     dispatch(updateTvShowWatchList(ids))
+    dispatch(fetchWatchedTvShows(userId))
   }
 }
 

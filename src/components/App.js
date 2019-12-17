@@ -11,8 +11,8 @@ import { fetchWatchedTvShows } from '../actions/watched'
 import { Router, Route, Switch } from 'react-router-dom'
 import history from '../history'
 import Home from './Home'
-import WatchList from './Watchlist/Watched'
-import Watched from './Watchlist/WatchList'
+import WatchList from './Watchlist/WatchList'
+import Watched from './Watchlist/Watched'
 import Toolbar from './Toolbar/Toolbar'
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
@@ -64,6 +64,8 @@ export class App extends Component {
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} linkClickHandler={this.backdropClickHandler} closeClickHandler={this.backdropClickHandler} />
           {backdrop}
+          <ScrollToTop />
+          <ScrollToBottom />
           <div className="ui container" style={{ marginTop: "76px" }}>
             <div>
               <Switch>
@@ -75,8 +77,6 @@ export class App extends Component {
               </Switch>
             </div>
           </div>
-          <ScrollToTop />
-          <ScrollToBottom />
         </Router>
       </div >
     );
