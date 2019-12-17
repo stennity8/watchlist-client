@@ -47,7 +47,7 @@ const SideDrawer = ({ show, linkClickHandler, currentUser, logout, clearSearchTv
           <li><Link to="/" onClick={clearSearch}><i className="ui icon home circle"></i>Home</Link></li>
           {currentUser ?
             <>
-              <li><Link to="/watchlist" onClick={linkClickHandler}><i className="ui icon user circle"></i>WatchList</Link></li>
+              <li><Link to="/watchlist" onClick={linkClickHandler}><i className="ui icon binoculars"></i>WatchList</Link></li>
               <li><Link to="/watched" onClick={linkClickHandler}><i className="ui icon check circle outline"></i>Watched</Link></li>
             </>
             : null}

@@ -33,7 +33,7 @@ const toolbar = props => {
         </div>
         <div className="toolbar-logo">
           <Link to="/" className="toolbar-logo-link" onClick={() => props.clearSearchTvShow()}>
-            <i className="binoculars icon"></i>
+            <i className="tv icon"></i>
             WatchList
           </Link>
         </div>
@@ -41,7 +41,7 @@ const toolbar = props => {
         <div className="toolbar-navigation-items">
           <ul>
             {props.currentUser ?
-              <><li><Link to="/watchlist"><i className="ui icon user circle"></i>WatchList</Link></li>
+              <><li><Link to="/watchlist"><i className="ui icon binoculars"></i>WatchList</Link></li>
                 <li></li>
                 <li><Link to="/watched"><i className="ui icon check circle outline"></i>Watched</Link></li>
                 <li></li>
