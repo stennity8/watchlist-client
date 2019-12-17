@@ -5,11 +5,12 @@ import './ScrollToBottom.css'
 export class ScrollToBottom extends Component {
   state = {
     is_visible: false,
-    windowHeight: 0
+    windowHeight: 100
   }
 
   componentDidMount() {
     document.addEventListener("scroll", (e) => this.toggleVisibility())
+    document.addEventListener("hashchange", (e) => this.toggleVisibility())
     this.setState({
       windowHeight: window.innerHeight * 1.5
     })
