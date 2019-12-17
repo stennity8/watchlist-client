@@ -14,6 +14,7 @@ import WatchList from './Watchlist/WatchList'
 import Toolbar from './Toolbar/Toolbar'
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
+import ScrollToTop from '../components/ScrollButtons/ScrollToTop'
 
 export class App extends Component {
   state = {
@@ -69,6 +70,7 @@ export class App extends Component {
               </Switch>
             </div>
           </div>
+          <ScrollToTop />
         </Router>
       </div >
     );

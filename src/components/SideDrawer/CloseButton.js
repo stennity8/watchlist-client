@@ -4,7 +4,7 @@ import './CloseButton.css'
 const CloseButton = (props) => {
   return (
     <div onClick={props.onClick} className="float-right">
-      <i class="times icon"></i>
+      <i className="times icon"></i>
     </div>
   );
 }
