@@ -4,8 +4,9 @@ import './SideDrawer.css';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/currentUser';
 import { clearSearchTvShow } from '../../actions/tvShows'
+import CloseButton from './CloseButton';
 
-const SideDrawer = ({ show, linkClickHandler, currentUser, logout, clearSearchTvShow }) => {
+const SideDrawer = ({ show, linkClickHandler, currentUser, logout, clearSearchTvShow, closeClickHandler }) => {
   let drawerClasses = 'side-drawer'
   if (show) {
     drawerClasses = 'side-drawer open'
@@ -37,13 +38,16 @@ const SideDrawer = ({ show, linkClickHandler, currentUser, logout, clearSearchTv
   }
 
   return (
-    <nav className={drawerClasses}>
-      <ul>
-        <li><Link to="/" onClick={clearSearch}><i className="ui icon home circle"></i>Home</Link></li>
-        {currentUser ? <li><Link to="/watchlist" onClick={linkClickHandler}><i className="ui icon user circle"></i>My WatchList</Link></li> : null}
-        {userLinks()}
-      </ul>
-    </nav>
+    <>
+      <nav className={drawerClasses}>
+        <CloseButton onClick={closeClickHandler} />
+        <ul>
+          <li><Link to="/" onClick={clearSearch}><i className="ui icon home circle"></i>Home</Link></li>
+          {currentUser ? <li><Link to="/watchlist" onClick={linkClickHandler}><i className="ui icon user circle"></i>My WatchList</Link></li> : null}
+          {userLinks()}
+        </ul>
+      </nav>
+    </>
   );
 }
 
