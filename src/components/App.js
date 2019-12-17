@@ -10,7 +10,8 @@ import { fetchWatchlistTvShows } from '../actions/watchList'
 import { Router, Route, Switch } from 'react-router-dom'
 import history from '../history'
 import Home from './Home'
-import WatchList from './Watchlist/WatchList'
+import WatchList from './Watchlist/Watched'
+import Watched from './Watchlist/WatchList'
 import Toolbar from './Toolbar/Toolbar'
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
@@ -68,6 +69,7 @@ export class App extends Component {
                 <Route path="/login" exact component={LoginReduxForm} />
                 <Route path="/signup" exact component={SignupReduxForm} />
                 <Route path="/watchlist" exact component={WatchList} />
+                <Route path="/watched" exact component={Watched} />
               </Switch>
             </div>
           </div>

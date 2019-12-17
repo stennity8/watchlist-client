@@ -40,7 +40,13 @@ const toolbar = props => {
         <div className="spacer"> </div>
         <div className="toolbar-navigation-items">
           <ul>
-            {props.currentUser ? <li><Link to="/watchlist">My WatchList</Link></li> : null}
+            {props.currentUser ?
+              <><li><Link to="/watchlist"><i className="ui icon user circle"></i>WatchList</Link></li>
+                <li></li>
+                <li><Link to="/watched"><i className="ui icon check circle outline"></i>Watched</Link></li>
+                <li></li>
+              </>
+              : null}
             {renderLogButton()}
           </ul>
         </div>
