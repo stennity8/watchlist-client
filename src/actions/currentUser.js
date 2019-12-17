@@ -1,6 +1,7 @@
 import { SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "./types"
 import history from '../history'
 import { fetchWatchlistTvShows, clearWatchlist } from './watchList'
+import { fetchWatchedTvShows } from './watched'
 import { LOCALURL } from './url'
 
 
@@ -34,6 +35,7 @@ export const login = (credentials) => async dispatch => {
   } else {
     dispatch(setCurrentUser(user))
     dispatch(fetchWatchlistTvShows(user.id))
+    dispatch(fetchWatchedTvShows(user.id))
     history.push('/')
   }
 }
