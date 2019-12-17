@@ -1,5 +1,5 @@
-.scroll-to-top{
+.scroll-to-bottom{
   position: fixed;
-  bottom: 6vh;
+  bottom: 2vh;
   right: 1vw;
 }

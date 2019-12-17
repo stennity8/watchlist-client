@@ -15,6 +15,7 @@ import Toolbar from './Toolbar/Toolbar'
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
 import ScrollToTop from '../components/ScrollButtons/ScrollToTop'
+import ScrollToBottom from '../components/ScrollButtons/ScrollToBottom'
 
 export class App extends Component {
   state = {
@@ -71,6 +72,7 @@ export class App extends Component {
             </div>
           </div>
           <ScrollToTop />
+          <ScrollToBottom />
         </Router>
       </div >
     );

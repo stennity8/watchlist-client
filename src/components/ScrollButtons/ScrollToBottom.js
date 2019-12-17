@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react'
-import './ScrollToTop.css'
+import './ScrollToBottom.css'
 
-export class ScrollToTop extends Component {
+export class ScrollToBottom extends Component {
   state = {
-    is_visible: false,
-    windowHeight: 300
+    is_visible: true,
+    windowHeight: 0
   }
 
   componentDidMount() {
     document.addEventListener("scroll", (e) => this.toggleVisibility())
     this.setState({
-      windowHeight: window.innerHeight / 2
+      windowHeight: window.innerHeight * 1.5
     })
   }
 
   toggleVisibility = () => {
-    if (window.pageYOffset > this.state.windowHeight) {
+    if (window.pageYOffset <= (document.body.scrollHeight - this.state.windowHeight)) {
       this.setState({
         is_visible: true
       })
@@ -27,19 +27,19 @@ export class ScrollToTop extends Component {
     }
   }
 
-  scrollToTop = () => {
+  scrollToBottom = () => {
     window.scrollTo({
-      top: 0,
+      top: document.body.scrollHeight,
       behavior: "smooth"
     })
   }
 
   render() {
     return (
-      <div className="scroll-to-top">
+      <div className="scroll-to-bottom">
         {this.state.is_visible ?
-          <div onClick={this.scrollToTop}>
-            <Icon name="chevron circle up" size="large" color="green" />
+          <div onClick={this.scrollToBottom}>
+            <Icon name="chevron circle down" size="large" color="green" />
           </div>
           :
           null
@@ -49,4 +49,4 @@ export class ScrollToTop extends Component {
   }
 }
 
-export default ScrollToTop;
+export default ScrollToBottom;
