@@ -4,7 +4,7 @@ import { postTvShow } from '../../actions/watchList'
 import history from '../../history'
 import Admin from '../Watchlist/Admin'
 
-const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShows }) => {
+const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShows, watchedTvShows }) => {
 
   const matchGenres = (genre_ids) => {
     //This formula iterates over the show's genre ids and compares to the API's genres.  It checks for 
@@ -36,6 +36,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
             <p className="column"><strong>Voter Score: </strong>{vote_average}</p>
             <p className="column"><strong>First Aired: </strong>{first_air_date}</p>
             {history.location.pathname === "/" ? renderWatchListButton(id) : <Admin showId={id} />}
+            {history.location.pathname === "/" ? renderWatchedButton(id) : null}
           </div>
         </div>
       </div>
@@ -49,6 +50,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
 
   const renderWatchListButton = (id) => {
     const currentlyOnList = watchlistTvShows.find(show => show.TMDB_ID === id)
+
     if (currentUser && !currentlyOnList) {
       return (
         <button className="column ui button youtube" onClick={() => addToWatchList(id)}>
@@ -65,6 +67,17 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
     }
   }
 
+  const renderWatchedButton = (id) => {
+    const previouslyWatched = watchedTvShows.find(show => show.TMDB_ID === id)
+    if (currentUser && previouslyWatched) {
+      return (
+        <button className="column ui circular icon button blue" onClick={() => history.push('/watched')} style={{ marginLeft: "10px" }}>
+          <i className="ui icon check circle outline"></i>
+        </button >
+      )
+    }
+  }
+
   return (
     <div className="ui celled list">
       {shows.map(renderTvShow)}
@@ -77,7 +90,8 @@ const mapStateToProps = (state, ownProps) => {
     shows: state[ownProps.reduxShowType],
     currentUser: state.currentUser,
     tvShowGenres: state.tvShowGenres,
-    watchlistTvShows: state.watchlistTvShows
+    watchlistTvShows: state.watchlistTvShows,
+    watchedTvShows: state.watchedTvShows
   }
 }
 
