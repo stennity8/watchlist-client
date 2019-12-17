@@ -1,7 +1,9 @@
 import React from 'react'
 import { Pagination } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { fetchPopularTvShows } from '../../actions/tvShows'
 
-const PaginationExampleCompact = () => (
+const PaginationExampleCompact = (props) => (
   <Pagination
     boundaryRange={0}
     defaultActivePage={1}
@@ -10,8 +12,8 @@ const PaginationExampleCompact = () => (
     lastItem={null}
     siblingRange={1}
     totalPages={10}
-    onPageChange={(event, data) => console.log(data.activePage)}
+    onPageChange={(event, data) => props.fetchPopularTvShows(data.activePage)}
   />
 )
 
-export default PaginationExampleCompact
+export default connect(null, { fetchPopularTvShows })(PaginationExampleCompact)

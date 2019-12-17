@@ -8,7 +8,7 @@ import './TvShows.css'
 class PopularTvShowList extends Component {
   componentDidMount() {
     this.props.fetchTvShowGenres()
-    this.props.fetchPopularTvShows()
+    this.props.fetchPopularTvShows(1)
   }
 
   render() {

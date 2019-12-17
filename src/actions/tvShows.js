@@ -29,8 +29,8 @@ export const clearSearchTvShow = () => {
   }
 }
 
-export const fetchPopularTvShows = () => async dispatch => {
-  const response = await fetch(`${URL}tv/popular?api_key=${TMDB_KEY}&language=en-US&page=1`)
+export const fetchPopularTvShows = (page) => async dispatch => {
+  const response = await fetch(`${URL}tv/popular?api_key=${TMDB_KEY}&language=en-US&page=${page}`)
 
   const tvShows = await response.json()
 
