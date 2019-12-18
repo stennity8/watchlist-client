@@ -39,7 +39,7 @@ export class ScrollToTop extends Component {
       <div className="scroll-to-top">
         {this.state.is_visible ?
           <div onClick={this.scrollToTop}>
-            <Icon inverted color="green" name="chevron circle up" size="big" />
+            <Icon inverted color="green" name="chevron circle up" size="huge" />
           </div>
           :
           null
