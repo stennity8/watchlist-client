@@ -100,7 +100,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
     const previouslyWatched = watchedTvShows.find(show => show.TMDB_ID === id)
     if (currentUser && previouslyWatched) {
       return (
-        <button className="column ui circular icon button blue" onClick={() => history.push('/watched')} style={{ marginLeft: "10px" }}>
+        <button className="column ui circular icon button blue" onClick={() => history.push('/watched')} style={{ margin: "10px" }}>
           <i className="ui icon check circle outline"></i>
         </button >
       )
