@@ -1,6 +1,6 @@
 .scroll-to-bottom{
   position: fixed;
-  bottom: 6vh;
+  bottom: 4vh;
   right: 1vw;
   z-index: 10;
 }
