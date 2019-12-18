@@ -1,6 +1,6 @@
 .scroll-to-top{
   position: fixed;
   bottom: 14vh;
-  right: 1vw;
+  left: 1vw;
   z-index: 10;
 }
