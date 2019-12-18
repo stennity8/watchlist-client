@@ -40,7 +40,7 @@ export class ScrollToBottom extends Component {
       <div className="scroll-to-bottom">
         {this.state.is_visible ?
           <div onClick={this.scrollToBottom}>
-            <Icon name="chevron circle down" size="big" color="green" />
+            <Icon name="chevron circle down" size="huge" color="green" />
           </div>
           :
           null
