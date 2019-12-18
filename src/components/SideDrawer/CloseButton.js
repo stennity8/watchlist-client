@@ -1,10 +1,11 @@
 import React from 'react';
+import { Icon } from 'semantic-ui-react'
 import './CloseButton.css'
 
 const CloseButton = (props) => {
   return (
     <div onClick={props.onClick} className="float-right">
-      <i className="times icon"></i>
+      <Icon name='times circle' size='big' />
     </div>
   );
 }
