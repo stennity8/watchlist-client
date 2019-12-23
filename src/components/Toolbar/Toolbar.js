@@ -41,7 +41,9 @@ const toolbar = props => {
         <div className="toolbar-navigation-items">
           <ul>
             {props.currentUser ?
-              <><li><Link to="/watchlist"><i className="ui icon binoculars"></i>WatchList</Link></li>
+              <>
+                <li><Link to="/"><i className="ui icon home circle"></i>Home</Link></li>
+                <li><Link to="/watchlist"><i className="ui icon binoculars"></i>WatchList</Link></li>
                 <li></li>
                 <li><Link to="/watched"><i className="ui icon check circle outline"></i>Watched</Link></li>
                 <li></li>
