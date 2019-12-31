@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { postTvShow } from '../../actions/watchList'
 import history from '../../history'
 import Admin from '../Watchlist/Admin'
+import { Link } from 'react-router-dom'
 
 const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShows, watchedTvShows }) => {
   const currentWatchListTMDB_ID = watchlistTvShows.map(show => show.TMDB_ID)
@@ -60,9 +61,10 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
         )
       } else {
         return (
-          <div className="column ui circular icon button green" onClick={() => history.push('/watchlist')}>
+          <Link className="column ui icon button green" onClick={() => history.push('/watchlist')}>
             <i className="binoculars icon"></i>
-          </div>
+            WatchList
+          </Link>
         )
       }
     } else {
@@ -89,9 +91,10 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
       )
     } else if (currentlyOnList) {
       return (
-        <div className="column ui circular icon button green" onClick={() => history.push('/watchlist')}>
+        <Link className="column ui icon button green" onClick={() => history.push('/watchlist')}>
           <i className="binoculars icon"></i>
-        </div>
+          WatchList
+        </Link>
       )
     }
   }
@@ -100,9 +103,10 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
     const previouslyWatched = watchedTvShows.find(show => show.TMDB_ID === id)
     if (currentUser && previouslyWatched) {
       return (
-        <button className="column ui circular icon button blue" onClick={() => history.push('/watched')} style={{ margin: "10px" }}>
+        <Link className="column ui icon button blue" onClick={() => history.push('/watched')} style={{ margin: "10px" }}>
           <i className="ui icon check circle outline"></i>
-        </button >
+          Watched List
+        </Link >
       )
     }
   }
