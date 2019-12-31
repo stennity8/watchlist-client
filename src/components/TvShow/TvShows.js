@@ -61,7 +61,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
         )
       } else {
         return (
-          <Link className="column ui icon button green" onClick={() => history.push('/watchlist')}>
+          <Link to="/watchlist" className="column ui icon button green" >
             <i className="binoculars icon"></i>
             WatchList
           </Link>
@@ -91,7 +91,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
       )
     } else if (currentlyOnList) {
       return (
-        <Link className="column ui icon button green" onClick={() => history.push('/watchlist')}>
+        <Link to="/watchlist" className="column ui icon button green">
           <i className="binoculars icon"></i>
           WatchList
         </Link>
@@ -103,7 +103,7 @@ const TvShows = ({ shows, currentUser, tvShowGenres, postTvShow, watchlistTvShow
     const previouslyWatched = watchedTvShows.find(show => show.TMDB_ID === id)
     if (currentUser && previouslyWatched) {
       return (
-        <Link className="column ui icon button blue" onClick={() => history.push('/watched')} style={{ margin: "10px" }}>
+        <Link to="/watched" className="column ui icon button blue" style={{ margin: "10px" }}>
           <i className="ui icon check circle outline"></i>
           Watched List
         </Link >
